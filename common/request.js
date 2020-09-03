@@ -1,16 +1,6 @@
-// import api form './config.js'
-
-// uni.request({
-// 	url: api+url,
-// 	method: 'POST',
-// 	data: {},
-// 	success: res => {},
-// 	fail: () => {},
-// 	complete: () => {}
-// });
 
 //网络请求 封装文件
-const api = "http://152.136.28.147:9009/VXMail/"
+// const api = "http://152.136.28.147:9009/VXMail/"
 // const api = "https://myc.jbsage.com/VXMail/"
 
 //请求分类
@@ -20,7 +10,7 @@ const api = "http://152.136.28.147:9009/VXMail/"
 			title:'加载中'
 		})
 		uni.request({
-			url:api+options.url || '',//
+			url:options.url || '',//
 			method:options.method ||"GET",
 			data:options.data || {},
 			dataType:options.dataType || "json",

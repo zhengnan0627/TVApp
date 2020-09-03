@@ -69,12 +69,12 @@ export default {
 		// 显示的主题，success|error|primary|info|warning
 		type: {
 			type: String,
-			default: 'warning'
+			default: 'none'
 		},
 		// 是否显示左侧的音量图标
 		volumeIcon: {
 			type: Boolean,
-			default: true
+			default: false
 		},
 		// 音量喇叭的大小
 		volumeSize: {
@@ -99,7 +99,7 @@ export default {
 		// 文字颜色，各图标也会使用文字颜色
 		color: {
 			type: String,
-			default: ''
+			default: '#ffffff'
 		},
 		// 背景颜色
 		bgColor: {
@@ -119,7 +119,7 @@ export default {
 		// 字体大小，单位rpx
 		fontSize: {
 			type: [Number, String],
-			default: 28
+			default: 14
 		},
 		// 滚动一个周期的时间长，单位ms
 		duration: {
@@ -156,7 +156,7 @@ export default {
 		// 通知的边距
 		padding: {
 			type: [Number, String],
-			default: '18rpx 24rpx'
+			default: '0 0'
 		},
 		// list列表为空时，是否显示组件
 		noListHidden: {
@@ -200,7 +200,7 @@ export default {
 }
 
 .u-notice-bar {
-	padding: 18rpx 24rpx;
+	// padding: 18rpx 24rpx;
 	overflow: hidden;
 }
 
@@ -219,7 +219,7 @@ export default {
 	flex: 1;
 	display: flex;
 	overflow: hidden;
-	margin-left: 12rpx;
+	// margin-left: 12rpx;
 }
 
 .u-right-icon {
@@ -231,7 +231,12 @@ export default {
 .u-notice-content {
 	line-height: 1;
 	white-space: nowrap;
-	font-size: 26rpx;
+	/*#ifndef APP-PLUS*/
+	font-size: 14px;
+	/*#endif*/
+	/*#ifdef APP-PLUS */
+		font-size: 9.5rpx; 
+	/*#endif */
 	animation: u-loop-animation 10s linear infinite both;
 	text-align: right;
 	// 这一句很重要，为了能让滚动左右连接起来

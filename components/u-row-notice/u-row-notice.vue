@@ -23,8 +23,8 @@
 						animationPlayState: animationPlayState,
 					}"
 				>
-					<text class="u-notice-text" @tap="click" :style="[textStyle]"
-					:class="['u-type-' + type]">{{showText}}</text>
+					<view class="u-notice-text" @tap="click" :style="[textStyle]"
+					:class="['u-type-' + type]">{{showText}}</view>
 				</view>
 			</view>
 			<view class="u-icon-wrap">
@@ -47,12 +47,12 @@ export default {
 		// none主题默认为透明背景，黑色(contentColor)字体
 		type: {
 			type: String,
-			default: 'warning'
+			default: 'none'
 		},
 		// 是否显示左侧的音量图标
 		volumeIcon: {
 			type: Boolean,
-			default: true
+			default: false
 		},
 		// 是否显示右侧的右箭头图标
 		moreIcon: {
@@ -87,7 +87,7 @@ export default {
 		// 字体大小，单位rpx
 		fontSize: {
 			type: [Number, String],
-			default: 26
+			default: 14
 		},
 		// 音量喇叭的大小
 		volumeSize: {
@@ -107,7 +107,7 @@ export default {
 		// 通知的边距
 		padding: {
 			type: [Number, String],
-			default: '18rpx 24rpx'
+			default: '0 0'
 		}
 	},
 	data() {
@@ -210,7 +210,7 @@ export default {
 <style lang="scss" scoped>
 	
 .u-notice-bar {
-	padding: 18rpx 24rpx;
+	// padding: 18rpx 24rpx;
 	overflow: hidden;
 }
 
@@ -229,7 +229,7 @@ export default {
 	flex: 1;
 	display: flex;
 	overflow: hidden;
-	margin-left: 12rpx;
+	// margin-left: 12rpx;
 }
 
 .u-right-icon {
@@ -248,7 +248,12 @@ export default {
 }
 
 .u-notice-text {
-	font-size: 26rpx;
+	/*#ifndef APP-PLUS*/
+	font-size: 14px;
+	/*#endif*/
+	/*#ifdef APP-PLUS */
+		font-size: 9.5rpx; 
+	/*#endif */
 	word-break: keep-all;
 	white-space: nowrap
 }
